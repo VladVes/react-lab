@@ -10,10 +10,7 @@ import ComponentInContainer from '../redux/containers/containers.js';
 function Main() {
   return (
     <div className="App">
-
-      {/* <hr> */}
-      <h1>React stuff</h1>
-      <h2>React + redux playground</h2>
+      <h1>React stuff playground</h1>
 
       <Ref />
 
