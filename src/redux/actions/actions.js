@@ -12,7 +12,7 @@ export const userAddAction = {
 };
 export const userDeleteAction = { type: "USER_DELETE", payload: { id: 1 } };
 
-// createAction return function that return new func that receive the payload and return action object { type: ..., payload: ... }.
+// createAction returns function that return new func that receive the payload and return action object { type: ..., payload: ... }.
 export const addUser = createAction("USER_ADD");
 
 console.log("action addUser:", addUser);

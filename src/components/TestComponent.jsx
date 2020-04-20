@@ -8,7 +8,7 @@ class TestComponent extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log("Cunstructed with props: ", props);
+    console.log("Constructed with props: ", props);
   }
 
   handleChange = ({ target: { value } }) =>
