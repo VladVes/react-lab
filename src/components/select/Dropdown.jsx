@@ -41,7 +41,7 @@ const Dropdown = ({
       // value={selected}
       onChange={handleChange}
       loading={!requestsCompleted}
-      selectWidth="78px"
+      selectWidth="178px"
       // customActions={
       //   <DropdownCustomActions>
       //     {[

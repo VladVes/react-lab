@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 // import logo from '../logo.svg';
 import '../styles/App.css';
 
@@ -19,28 +25,40 @@ function Main() {
   return (
     <div className="App">
       <h1>React stuff playground</h1>
+      <Router>
+        <Switch>
+          <Route path="/ref" component={Ref} />
 
-      <Ref />
+          <Route path="/redux-container" component={ComponentInContainer} />
 
-      <ParentAndChildren>
-        <p>Child 01</p>
-        <p>Child 02</p>
-        <p>Child 03</p>
-      </ParentAndChildren>
+          <Route path="/children">
+            <ParentAndChildren>
+              <p>Child 01</p>
+              <p>Child 02</p>
+              <p>Child 03</p>
+            </ParentAndChildren>
+          </Route>
 
-      <NameSpace>
-        <NameSpace.Body>
-          <NameSpace.Title>Title</NameSpace.Title>
-        </NameSpace.Body>
-      </NameSpace>
-
-      <ComponentInContainer />
-
-      <hr />
-      <h3>React-select</h3>
-        <DropDown requestsCompleted options={options} /> 
-
-      <hr />
+          <Route path="/namespace">
+            <NameSpace>
+              <NameSpace.Body>
+                <NameSpace.Title>Title</NameSpace.Title>
+              </NameSpace.Body>
+            </NameSpace>
+          </Route>
+          
+          <Route path="/react-select">
+            <div>
+              <hr />
+              <h3>React-select</h3>
+              <div style={{ height: '400px' }}>
+                <DropDown requestsCompleted options={options} /> 
+              </div>
+              <hr />
+            </div>
+          </Route>
+        </Switch>
+      </Router>
 
     </div>
   );
