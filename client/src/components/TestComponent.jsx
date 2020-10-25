@@ -3,7 +3,7 @@ import Loader from "react-loader-spinner";
 
 class TestComponent extends React.Component {
   state = {
-    taskDescription: ""
+    taskDescription: "",
   };
 
   constructor(props) {
@@ -24,7 +24,7 @@ class TestComponent extends React.Component {
 
   handleCounterClick = () =>
     this.props.updateCounter({
-      counter: this.props.counter + 1
+      counter: this.props.counter + 1,
     });
 
   handleGetUser = () => this.props.getUser();
@@ -71,11 +71,11 @@ class TestComponent extends React.Component {
           {this.props.users.map((user, i) =>
             user.state === "successed" ? (
               <div key={i} className="m-3">
-                {user.picture ? <img src={user.picture.medium} /> : null}
+                {user.picture ? (
+                  <img src={user.picture.medium} alt="some alt desc" />
+                ) : null}
                 {user.name ? (
-                  <p>{`${user.name.title} ${user.name.first} ${
-                    user.name.last
-                  }`}</p>
+                  <p>{`${user.name.title} ${user.name.first} ${user.name.last}`}</p>
                 ) : null}
               </div>
             ) : (

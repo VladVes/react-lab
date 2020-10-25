@@ -1,19 +1,19 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 import Select, {
-  MenuProps,
-  SelectComponentsConfig,
-  ValueContainerProps,
+  // MenuProps,
+  // SelectComponentsConfig,
+  // ValueContainerProps,
   components,
-} from 'react-select';
-import styled from '@emotion/styled';
-import { selectComponents } from './selectComponents';
-import { selectStyles } from './selectStyles';
+} from "react-select";
+import styled from "@emotion/styled";
+import { selectComponents } from "./selectComponents";
+import { selectStyles } from "./selectStyles";
 
-export const DarkGray = '#2d2d2d';
-export const WeakGray = '#BFBFBF';
+export const DarkGray = "#2d2d2d";
+export const WeakGray = "#BFBFBF";
 
 const StyledSelect = styled(Select)`
-  width: ${({ selectWidth }) => selectWidth ?? 'auto'};
+  width: ${({ selectWidth }) => selectWidth ?? "auto"};
   max-width: 200px;
 
   ${({ isLoading }) =>
@@ -25,19 +25,19 @@ const StyledSelect = styled(Select)`
   `};
 `;
 
-const StyledFakeSingleValue = styled('div')`
+const StyledFakeSingleValue = styled("div")`
   &:first-letter {
     text-transform: capitalize;
   }
 `;
 
-const Container = styled('div')`
+const Container = styled("div")`
   display: flex;
   height: 26px;
   ${({ disabled }) => disabled && `opacity: 0.3;`}
 `;
 
-const Label = styled('p')`
+const Label = styled("p")`
   display: flex;
   align-items: center;
   padding: 0 7px;
@@ -52,7 +52,7 @@ const Label = styled('p')`
 
   svg {
     fill: ${WeakGray};
-    margin-right: ${({ withText }) => (withText ? '5px' : '0px')};
+    margin-right: ${({ withText }) => (withText ? "5px" : "0px")};
   }
 
   span {
@@ -89,7 +89,7 @@ function DropdownFinal({
     allComponents = {
       ...allComponents,
       Menu: (p) => (
-        <div {...p.innerProps} style={p.getStyles('menu', p)}>
+        <div {...p.innerProps} style={p.getStyles("menu", p)}>
           {p.children}
           {customActions}
         </div>
@@ -113,16 +113,16 @@ function DropdownFinal({
         selectEl.current.onMenuClose();
       }
     };
-    document.addEventListener('click', handleClickOutSide, { capture: true });
-    console.log('Mount DROPDOWN!');
+    document.addEventListener("click", handleClickOutSide, { capture: true });
+    console.log("Mount DROPDOWN!");
     return () =>
-      document.removeEventListener('click', handleClickOutSide, {
+      document.removeEventListener("click", handleClickOutSide, {
         capture: true,
       });
   }, []);
 
-  if (label === 'Overlays:') {
-    console.log('RENDER DROPDOWN:', options, allComponents);
+  if (label === "Overlays:") {
+    console.log("RENDER DROPDOWN:", options, allComponents);
   }
 
   return (
@@ -139,7 +139,7 @@ function DropdownFinal({
         components={allComponents}
         onChange={onChange}
         isLoading={!disabled && loading}
-        loadingMessage={() => 'Loading...'}
+        loadingMessage={() => "Loading..."}
         placeholder={null}
         isDisabled={disabled}
         isMulti={isMulti}
@@ -152,11 +152,10 @@ function DropdownFinal({
   );
 }
 
-
 export function DropdownMulti(props) {
   const getDisplayValue = (values) => {
     if (!values || values.length === 0) {
-      return 'None';
+      return "None";
     }
 
     if (values.length === 1) {
@@ -164,10 +163,10 @@ export function DropdownMulti(props) {
     }
 
     if (props.alwaysShowValues) {
-      return values.map(v => v.label).join(', ');
+      return values.map((v) => v.label).join(", ");
     }
 
-    return 'Multi';
+    return "Multi";
   };
 
   const extraComponentsConfig = {
@@ -178,7 +177,7 @@ export function DropdownMulti(props) {
         return (
           <components.ValueContainer {...p}>
             {p.children}
-            <StyledFakeSingleValue style={p.getStyles('singleValue', p)}>
+            <StyledFakeSingleValue style={p.getStyles("singleValue", p)}>
               {displayValue}
             </StyledFakeSingleValue>
           </components.ValueContainer>

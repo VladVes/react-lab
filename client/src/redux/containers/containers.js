@@ -24,9 +24,9 @@ const mapDispatchToProps = dispatch => ({
   getUser: () => dispatch(actions.getUser())
 });
 
-const actionsToConnect = {
-  addTask: actions.addTask
-};
+// const actionsToConnect = {
+//   addTask: actions.addTask
+// };
 
 export default connect(
   mapStateToProps,
